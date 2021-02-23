@@ -1,8 +1,8 @@
 //
-//  Swaskell.h
+//  Operators.swift
 //  Swaskell
 //
-//  Copyright (c) 22/02/2021 Preston Spalding
+//  Copyright (c) 23/02/2021 Preston Spalding
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -23,14 +23,25 @@
 //  THE SOFTWARE.
 //
 
-#import <Foundation/Foundation.h>
+import Foundation
 
-//! Project version number for Swaskell.
-FOUNDATION_EXPORT double SwaskellVersionNumber;
+precedencegroup Functor {
+    associativity: left
+    higherThan: NilCoalescingPrecedence
+}
 
-//! Project version string for Swaskell.
-FOUNDATION_EXPORT const unsigned char SwaskellVersionString[];
+precedencegroup Applicative {
+    associativity: left
+    higherThan: NilCoalescingPrecedence
+}
 
-// In this header, you should import all the public headers of your framework using statements like #import <Swaskell/PublicHeader.h>
+precedencegroup Monad {
+    associativity: left
+    higherThan: NilCoalescingPrecedence
+}
 
-
+infix operator <>
+infix operator <^>: Functor
+infix operator <*>: Applicative
+infix operator >>: Monad
+infix operator >>=: Monad

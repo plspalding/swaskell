@@ -8,8 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		5A82CEEF25E45B2F00EBB236 /* Swaskell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A82CEE525E45B2E00EBB236 /* Swaskell.framework */; };
-		5A82CEF425E45B2F00EBB236 /* SwaskellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A82CEF325E45B2F00EBB236 /* SwaskellTests.swift */; };
+		5A82CEF425E45B2F00EBB236 /* MaybeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A82CEF325E45B2F00EBB236 /* MaybeTests.swift */; };
 		5A82CEF625E45B2F00EBB236 /* Swaskell.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A82CEE825E45B2E00EBB236 /* Swaskell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5A82CF0325E5AB7F00EBB236 /* Maybe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A82CF0225E5AB7F00EBB236 /* Maybe.swift */; };
+		5A82CF0E25E5AC7000EBB236 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A82CF0D25E5AC7000EBB236 /* Operators.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,8 +29,10 @@
 		5A82CEE825E45B2E00EBB236 /* Swaskell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Swaskell.h; sourceTree = "<group>"; };
 		5A82CEE925E45B2E00EBB236 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A82CEEE25E45B2F00EBB236 /* SwaskellTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwaskellTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5A82CEF325E45B2F00EBB236 /* SwaskellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwaskellTests.swift; sourceTree = "<group>"; };
+		5A82CEF325E45B2F00EBB236 /* MaybeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaybeTests.swift; sourceTree = "<group>"; };
 		5A82CEF525E45B2F00EBB236 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5A82CF0225E5AB7F00EBB236 /* Maybe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Maybe.swift; sourceTree = "<group>"; };
+		5A82CF0D25E5AC7000EBB236 /* Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +76,8 @@
 			isa = PBXGroup;
 			children = (
 				5A82CEE825E45B2E00EBB236 /* Swaskell.h */,
+				5A82CF0C25E5AC5B00EBB236 /* Operators */,
+				5A82CF0125E5AB7100EBB236 /* Monads */,
 				5A82CEE925E45B2E00EBB236 /* Info.plist */,
 			);
 			path = Swaskell;
@@ -80,10 +86,26 @@
 		5A82CEF225E45B2F00EBB236 /* SwaskellTests */ = {
 			isa = PBXGroup;
 			children = (
-				5A82CEF325E45B2F00EBB236 /* SwaskellTests.swift */,
+				5A82CEF325E45B2F00EBB236 /* MaybeTests.swift */,
 				5A82CEF525E45B2F00EBB236 /* Info.plist */,
 			);
 			path = SwaskellTests;
+			sourceTree = "<group>";
+		};
+		5A82CF0125E5AB7100EBB236 /* Monads */ = {
+			isa = PBXGroup;
+			children = (
+				5A82CF0225E5AB7F00EBB236 /* Maybe.swift */,
+			);
+			path = Monads;
+			sourceTree = "<group>";
+		};
+		5A82CF0C25E5AC5B00EBB236 /* Operators */ = {
+			isa = PBXGroup;
+			children = (
+				5A82CF0D25E5AC7000EBB236 /* Operators.swift */,
+			);
+			path = Operators;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,6 +169,7 @@
 				TargetAttributes = {
 					5A82CEE425E45B2E00EBB236 = {
 						CreatedOnToolsVersion = 12.4;
+						LastSwiftMigration = 1240;
 					};
 					5A82CEED25E45B2F00EBB236 = {
 						CreatedOnToolsVersion = 12.4;
@@ -194,6 +217,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A82CF0325E5AB7F00EBB236 /* Maybe.swift in Sources */,
+				5A82CF0E25E5AC7000EBB236 /* Operators.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,7 +226,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A82CEF425E45B2F00EBB236 /* SwaskellTests.swift in Sources */,
+				5A82CEF425E45B2F00EBB236 /* MaybeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +366,7 @@
 		5A82CEFA25E45B2F00EBB236 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -356,6 +382,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.practice.com.Swaskell;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -364,6 +391,7 @@
 		5A82CEFB25E45B2F00EBB236 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -387,6 +415,7 @@
 		5A82CEFD25E45B2F00EBB236 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SwaskellTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -404,6 +433,7 @@
 		5A82CEFE25E45B2F00EBB236 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SwaskellTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
