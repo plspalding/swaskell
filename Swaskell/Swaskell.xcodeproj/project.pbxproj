@@ -12,6 +12,7 @@
 		5A82CEF625E45B2F00EBB236 /* Swaskell.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A82CEE825E45B2E00EBB236 /* Swaskell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5A82CF0325E5AB7F00EBB236 /* Maybe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A82CF0225E5AB7F00EBB236 /* Maybe.swift */; };
 		5A82CF0E25E5AC7000EBB236 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A82CF0D25E5AC7000EBB236 /* Operators.swift */; };
+		5A82CF7525E7011400EBB236 /* Curry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A82CF7425E7011300EBB236 /* Curry.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +34,7 @@
 		5A82CEF525E45B2F00EBB236 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A82CF0225E5AB7F00EBB236 /* Maybe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Maybe.swift; sourceTree = "<group>"; };
 		5A82CF0D25E5AC7000EBB236 /* Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
+		5A82CF7425E7011300EBB236 /* Curry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Curry.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 				5A82CF0C25E5AC5B00EBB236 /* Operators */,
 				5A82CF0125E5AB7100EBB236 /* Monads */,
 				5A82CEE925E45B2E00EBB236 /* Info.plist */,
+				5A82CF7425E7011300EBB236 /* Curry.swift */,
 			);
 			path = Swaskell;
 			sourceTree = "<group>";
@@ -218,6 +221,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A82CF0325E5AB7F00EBB236 /* Maybe.swift in Sources */,
+				5A82CF7525E7011400EBB236 /* Curry.swift in Sources */,
 				5A82CF0E25E5AC7000EBB236 /* Operators.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
