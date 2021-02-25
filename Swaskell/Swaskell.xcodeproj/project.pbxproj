@@ -13,6 +13,7 @@
 		5A82CF0325E5AB7F00EBB236 /* Maybe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A82CF0225E5AB7F00EBB236 /* Maybe.swift */; };
 		5A82CF0E25E5AC7000EBB236 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A82CF0D25E5AC7000EBB236 /* Operators.swift */; };
 		5A82CF7525E7011400EBB236 /* Curry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A82CF7425E7011300EBB236 /* Curry.swift */; };
+		5A82CF7E25E85AA300EBB236 /* Either.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A82CF7D25E85AA300EBB236 /* Either.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +36,7 @@
 		5A82CF0225E5AB7F00EBB236 /* Maybe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Maybe.swift; sourceTree = "<group>"; };
 		5A82CF0D25E5AC7000EBB236 /* Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
 		5A82CF7425E7011300EBB236 /* Curry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Curry.swift; sourceTree = "<group>"; };
+		5A82CF7D25E85AA300EBB236 /* Either.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Either.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				5A82CF0225E5AB7F00EBB236 /* Maybe.swift */,
+				5A82CF7D25E85AA300EBB236 /* Either.swift */,
 			);
 			path = Monads;
 			sourceTree = "<group>";
@@ -220,6 +223,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A82CF7E25E85AA300EBB236 /* Either.swift in Sources */,
 				5A82CF0325E5AB7F00EBB236 /* Maybe.swift in Sources */,
 				5A82CF7525E7011400EBB236 /* Curry.swift in Sources */,
 				5A82CF0E25E5AC7000EBB236 /* Operators.swift in Sources */,
@@ -371,8 +375,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -385,6 +390,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.practice.com.Swaskell;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -396,8 +403,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -410,6 +418,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.practice.com.Swaskell;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
