@@ -14,6 +14,7 @@
 		5A82CF0E25E5AC7000EBB236 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A82CF0D25E5AC7000EBB236 /* Operators.swift */; };
 		5A82CF7525E7011400EBB236 /* Curry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A82CF7425E7011300EBB236 /* Curry.swift */; };
 		5A82CF7E25E85AA300EBB236 /* Either.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A82CF7D25E85AA300EBB236 /* Either.swift */; };
+		5A82CF8225E99BC900EBB236 /* EitherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A82CF8125E99BC800EBB236 /* EitherTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +38,7 @@
 		5A82CF0D25E5AC7000EBB236 /* Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
 		5A82CF7425E7011300EBB236 /* Curry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Curry.swift; sourceTree = "<group>"; };
 		5A82CF7D25E85AA300EBB236 /* Either.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Either.swift; sourceTree = "<group>"; };
+		5A82CF8125E99BC800EBB236 /* EitherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EitherTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				5A82CEF325E45B2F00EBB236 /* MaybeTests.swift */,
+				5A82CF8125E99BC800EBB236 /* EitherTests.swift */,
 				5A82CEF525E45B2F00EBB236 /* Info.plist */,
 			);
 			path = SwaskellTests;
@@ -234,6 +237,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A82CF8225E99BC900EBB236 /* EitherTests.swift in Sources */,
 				5A82CEF425E45B2F00EBB236 /* MaybeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

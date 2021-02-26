@@ -75,3 +75,45 @@ func bind<A,B,C>(_ mb: Either<A,B>, _ f: (B) -> Either<A,C>) -> Either<A,C> {
 func >>=<A,B,C>(_ mb: Either<A,B>, _ f: (B) -> Either<A,C>) -> Either<A,C> {
     return bind(mb, f)
 }
+
+// Functions
+func either<A,B,C>(_ f: (A) -> C, _ g: (B) -> C, value: Either<A,B>) -> C {
+    switch value {
+    case .left(let a): return f(a)
+    case .right(let b): return g(b)
+    }
+}
+
+func lefts<A,B>(_ mb: [Either<A,B>]) -> [A] {
+    var values: [A] = []
+    for value in mb {
+        switch value {
+        case .left(let a): values.append(a)
+        case .right(_): continue
+        }
+    }
+    return values
+}
+
+func rights<A,B>(_ mb: [Either<A,B>]) -> [B] {
+    var values: [B] = []
+    for value in mb {
+        switch value {
+        case .left(_): continue
+        case .right(let b): values.append(b)
+        }
+    }
+    return values
+}
+
+func isLeft<A,B>(_ mb: Either<A,B>) -> Bool {
+    switch mb {
+    case .left: return true
+    case .right: return false
+    }
+}
+
+func isRight<A,B>(_ mb: Either<A,B>) -> Bool {
+    return !isLeft(mb)
+}
+
