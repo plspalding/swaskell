@@ -76,6 +76,38 @@ class EitherTests: XCTestCase {
         let rightValues: [Either<String,Int>] = [.right(1), .right(2), .right(3)]
         rightValues.forEach { XCTAssertTrue(isRight($0)) }
     }
+    
+    func test_formLeft_returnsLeftValue() {
+        let leftValues = ["E1", "E2", "E3"]
+        let values: [Either<String,Int>] = leftValues.map { .left($0) }
+        values.enumerated().forEach { XCTAssertEqual(fromLeft(default: "Default", $0.1), leftValues[$0.0]) }
+        values.enumerated().forEach { XCTAssertEqual(fromLeft(default: "Second Default", $0.1), leftValues[$0.0]) }
+    }
+    
+    func test_formLeft_returnsDefaultValue_whenRightValue() {
+        let leftValues = [1, 2, 3]
+        let values: [Either<String,Int>] = leftValues.map { .right($0) }
+        values.enumerated().forEach { XCTAssertEqual(fromLeft(default: "Default", $0.1), "Default") }
+    }
+    
+    func test_formRight_returnsRightValue() {
+        let rightValues = [1, 2, 3]
+        let values: [Either<String,Int>] = rightValues.map { .right($0) }
+        values.enumerated().forEach { XCTAssertEqual(fromRight(default: 0, $0.1), rightValues[$0.0]) }
+    }
+    
+    func test_formRight_returnsDefaultValue_whenLeftValue() {
+        let leftValues = ["E1", "E2", "E3"]
+        let values: [Either<String,Int>] = leftValues.map { .left($0) }
+        values.enumerated().forEach { XCTAssertEqual(fromRight(default: 0, $0.1), 0) }
+        values.enumerated().forEach { XCTAssertEqual(fromRight(default: 5, $0.1), 5) }
+    }
+
+    func test_partionEithers_separatesValuesCorrectly() {
+        let values: [Either<String,Int>] = [.right(0), .right(1), .left("E1"), .right(2), .left("E2")]
+        XCTAssertEqual(partionEithers(values).0, ["E1", "E2"])
+        XCTAssertEqual(partionEithers(values).1, [0, 1, 2])
+    }
 }
 
 extension EitherTests {

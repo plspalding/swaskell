@@ -117,3 +117,21 @@ func isRight<A,B>(_ mb: Either<A,B>) -> Bool {
     return !isLeft(mb)
 }
 
+func fromLeft<A,B>(default: A, _ mb: Either<A,B>) -> A {
+    switch mb {
+    case .left(let a): return a
+    case .right: return `default`
+    }
+}
+
+func fromRight<A,B>(default: B, _ mb: Either<A,B>) -> B {
+    switch mb {
+    case .left: return `default`
+    case .right(let b): return b
+    }
+}
+
+func partionEithers<A,B>(_ eithers: [Either<A,B>]) -> ([A], [B]) {
+    return (lefts(eithers), rights(eithers))
+}
+
