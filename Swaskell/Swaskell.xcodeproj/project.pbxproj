@@ -15,6 +15,7 @@
 		5A82CF7525E7011400EBB236 /* Curry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A82CF7425E7011300EBB236 /* Curry.swift */; };
 		5A82CF7E25E85AA300EBB236 /* Either.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A82CF7D25E85AA300EBB236 /* Either.swift */; };
 		5A82CF8225E99BC900EBB236 /* EitherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A82CF8125E99BC800EBB236 /* EitherTests.swift */; };
+		5A82CF8625EC525900EBB236 /* Reader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A82CF8525EC525900EBB236 /* Reader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +40,7 @@
 		5A82CF7425E7011300EBB236 /* Curry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Curry.swift; sourceTree = "<group>"; };
 		5A82CF7D25E85AA300EBB236 /* Either.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Either.swift; sourceTree = "<group>"; };
 		5A82CF8125E99BC800EBB236 /* EitherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EitherTests.swift; sourceTree = "<group>"; };
+		5A82CF8525EC525900EBB236 /* Reader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 			children = (
 				5A82CF0225E5AB7F00EBB236 /* Maybe.swift */,
 				5A82CF7D25E85AA300EBB236 /* Either.swift */,
+				5A82CF8525EC525900EBB236 /* Reader.swift */,
 			);
 			path = Monads;
 			sourceTree = "<group>";
@@ -228,6 +231,7 @@
 			files = (
 				5A82CF7E25E85AA300EBB236 /* Either.swift in Sources */,
 				5A82CF0325E5AB7F00EBB236 /* Maybe.swift in Sources */,
+				5A82CF8625EC525900EBB236 /* Reader.swift in Sources */,
 				5A82CF7525E7011400EBB236 /* Curry.swift in Sources */,
 				5A82CF0E25E5AC7000EBB236 /* Operators.swift in Sources */,
 			);
