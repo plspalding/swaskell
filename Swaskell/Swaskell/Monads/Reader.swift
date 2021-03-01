@@ -25,17 +25,21 @@
 
 import Foundation
 
-struct Reader<E,A> {
-    let runReader: (E) -> A
+struct Reader<R,A> {
+    let runReader: (R) -> A
 }
 
-func fmap<A,B,E>(_ f: @escaping (A) -> B, _ ma: Reader<E,A>) -> Reader<E,B> {
+func fmap<R,A,B>(_ f: @escaping (A) -> B, _ ma: Reader<R,A>) -> Reader<R,B> {
     return Reader { e in
         f(ma.runReader(e))
     }
 }
 
-func apply<A,B,E>(_ mab: Reader<E,(A) -> B>, _ ma: Reader<E,A>) -> Reader<E,B> {
+func <^><R,A,B>(_ f: @escaping (A) -> B, _ ma: Reader<R,A>) -> Reader<R,B> {
+    return fmap(f, ma)
+}
+
+func apply<R,A,B>(_ mab: Reader<R,(A) -> B>, _ ma: Reader<R,A>) -> Reader<R,B> {
     return Reader { e in
         let f = mab.runReader(e)
         let a = ma.runReader(e)
@@ -43,9 +47,40 @@ func apply<A,B,E>(_ mab: Reader<E,(A) -> B>, _ ma: Reader<E,A>) -> Reader<E,B> {
     }
 }
 
-func bind<A,B,E>(_ ma: Reader<E,A>, _ f: @escaping (A) -> Reader<E,B>) -> Reader<E,B> {
+func <*><R,A,B>(_ mab: Reader<R,(A) -> B>, _ ma: Reader<R,A>) -> Reader<R,B> {
+    return apply(mab, ma)
+}
+
+func bind<R,A,B>(_ ma: Reader<R,A>, _ f: @escaping (A) -> Reader<R,B>) -> Reader<R,B> {
     return Reader { e in
         let a = ma.runReader(e)
         return f(a).runReader(e)
+    }
+}
+
+func >>=<R,A,B>(_ ma: Reader<R,A>, _ f: @escaping (A) -> Reader<R,B>) -> Reader<R,B> {
+    return bind(ma, f)
+}
+
+// Functions
+func reader<A,R>(_ f: @escaping (R) -> A) -> Reader<R,A> {
+    return Reader(runReader: f)
+}
+
+func mapReader<R,A,B>(_ f: @escaping (A) -> B, _ ma: Reader<R,A>) -> Reader<R,B> {
+    return fmap(f, ma)
+}
+
+enum Color {
+    case red
+    case blue
+    case green
+}
+
+func ==(lhs: Color, rhs: Color) -> Bool {
+    switch (lhs, rhs) {
+    case (.red, .red), (.blue, .blue), (.green, .green): return true
+    default:
+        return false
     }
 }
