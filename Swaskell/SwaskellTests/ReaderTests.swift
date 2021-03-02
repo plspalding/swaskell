@@ -40,6 +40,24 @@ class ReaderTests: XCTestCase {
         XCTAssertEqual(mapReader(addFive, sut).runReader(5), 10)
         XCTAssertEqual(mapReader(addFive, sut).runReader(10), 15)
     }
+    
+    func test_withReader_transformsEnvironmentBeforeApplying() {
+        let r: Reader<String, String> = reader { x in x + x }
+        let sut = withReader(addExclamationMark, r)
+        XCTAssertEqual(sut.runReader("Hello"), "Hello!Hello!")
+        XCTAssertEqual(sut.runReader("Hola"), "Hola!Hola!")
+    }
+    
+    func test_ask_givesBackR() {
+        XCTAssertEqual(ask().runReader("Hello"), "Hello")
+        XCTAssertEqual(ask().runReader(5), 5)
+    }
+    
+    enum Env {
+        case debug
+        case staging
+        case production
+    }
 }
 
 func id<A>(_ a: A) -> A {

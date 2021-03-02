@@ -62,6 +62,10 @@ func >>=<R,A,B>(_ ma: Reader<R,A>, _ f: @escaping (A) -> Reader<R,B>) -> Reader<
     return bind(ma, f)
 }
 
+func >>-<R,A,B>(_ ma: Reader<R,A>, _ f: @escaping (A) -> Reader<R,B>) -> Reader<R,B> {
+    return bind(ma, f)
+}
+
 // Functions
 func reader<A,R>(_ f: @escaping (R) -> A) -> Reader<R,A> {
     return Reader(runReader: f)
@@ -69,6 +73,14 @@ func reader<A,R>(_ f: @escaping (R) -> A) -> Reader<R,A> {
 
 func mapReader<R,A,B>(_ f: @escaping (A) -> B, _ ma: Reader<R,A>) -> Reader<R,B> {
     return fmap(f, ma)
+}
+
+func withReader<R,A>(_ f: @escaping (R) -> R, _ ma: Reader<R,A>) -> Reader<R,A> {
+    return Reader { ma.runReader(f($0)) }
+}
+
+func ask<R>() -> Reader<R,R> {
+    return Reader { $0 }
 }
 
 enum Color {

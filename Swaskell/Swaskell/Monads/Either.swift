@@ -72,7 +72,7 @@ func bind<A,B,C>(_ mb: Either<A,B>, _ f: (B) -> Either<A,C>) -> Either<A,C> {
     }
 }
 
-func >>=<A,B,C>(_ mb: Either<A,B>, _ f: (B) -> Either<A,C>) -> Either<A,C> {
+func >>-<A,B,C>(_ mb: Either<A,B>, _ f: (B) -> Either<A,C>) -> Either<A,C> {
     return bind(mb, f)
 }
 

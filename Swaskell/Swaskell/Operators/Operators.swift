@@ -44,4 +44,4 @@ infix operator <>
 infix operator <^>: Functor
 infix operator <*>: Applicative
 infix operator >>: Monad
-infix operator >>=: Monad
+infix operator >>-: Monad

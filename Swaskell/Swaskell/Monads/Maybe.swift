@@ -73,7 +73,7 @@ func bind<A,B>(_ ma: Maybe<A>, _ f: (A) -> Maybe<B>) -> Maybe<B> {
     }
 }
 
-func >>=<A,B>(_ ma: Maybe<A>, _ f: (A) -> Maybe<B>) -> Maybe<B> {
+func >>-<A,B>(_ ma: Maybe<A>, _ f: (A) -> Maybe<B>) -> Maybe<B> {
     return bind(ma, f)
 }
 
