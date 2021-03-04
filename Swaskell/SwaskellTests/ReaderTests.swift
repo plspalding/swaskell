@@ -53,10 +53,12 @@ class ReaderTests: XCTestCase {
         XCTAssertEqual(ask().runReader(5), 5)
     }
     
-    enum Env {
-        case debug
-        case staging
-        case production
+    func test_asks_doesSomething() {
+        let x: Reader<String, Int> = asks { x in
+            return x.count > 0 ? 1 : 0
+        }
+        XCTAssertEqual(x.runReader("Hello"), 1)
+        XCTAssertEqual(x.runReader(""), 0)
     }
 }
 

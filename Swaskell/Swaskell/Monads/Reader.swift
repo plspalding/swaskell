@@ -83,6 +83,12 @@ func ask<R>() -> Reader<R,R> {
     return Reader { $0 }
 }
 
+func asks<R,A>(_ f: @escaping (R) -> A) -> Reader<R,A> {
+    return Reader {
+        f($0)
+    }
+}
+
 enum Color {
     case red
     case blue
