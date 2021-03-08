@@ -89,6 +89,12 @@ func asks<R,A>(_ f: @escaping (R) -> A) -> Reader<R,A> {
     }
 }
 
+func local<R,A>(_ f: @escaping (R) -> R, _ ma: Reader<R,A>) -> Reader<R,A> {
+    return Reader {
+        ma.runReader(f($0))
+    }
+}
+
 enum Color {
     case red
     case blue

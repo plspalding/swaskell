@@ -53,12 +53,36 @@ class ReaderTests: XCTestCase {
         XCTAssertEqual(ask().runReader(5), 5)
     }
     
-    func test_asks_doesSomething() {
-        let x: Reader<String, Int> = asks { x in
-            return x.count > 0 ? 1 : 0
+    func test_asks_applysFunctionToEnvironment() {
+        let sut: Reader<String, Int> = asks { env in
+            return env.count > 0 ? 1 : 0
         }
-        XCTAssertEqual(x.runReader("Hello"), 1)
-        XCTAssertEqual(x.runReader(""), 0)
+        XCTAssertEqual(sut.runReader("Hello"), 1)
+        XCTAssertEqual(sut.runReader(""), 0)
+    }
+    
+    func test_local_modifiesEnvironmentBeforeApplyingToMonad() {
+        let r: Reader<Environment, String> = Reader { env in
+            switch env {
+            case .debug: return "Debug"
+            case .prod: return "Production"
+            }
+        }
+        let sut: Reader<Environment, String> = local(switchEnv, r)
+        XCTAssertEqual(sut.runReader(.debug), "Production")
+        XCTAssertEqual(sut.runReader(.prod), "Debug")
+    }
+}
+
+enum Environment {
+    case debug
+    case prod
+}
+
+func switchEnv(_ env: Environment) -> Environment {
+    switch env {
+    case .debug: return .prod
+    case .prod: return .debug
     }
 }
 
@@ -70,6 +94,6 @@ func addFive(_ x: Int) -> Int {
     return x + 5
 }
 
-func addExclamationMark(_ s:String) -> String {
+func addExclamationMark(_ s: String) -> String {
     return s + "!"
 }
